@@ -1,25 +1,26 @@
 package main
- 
+
 import (
-    "fmt"
-    "math/rand"
-    "time"
+	"math/rand"
+	"time"
+
+	"github.com/atotto/clipboard"
 )
- 
+
 func init() {
-    rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano())
 }
- 
+
 func main() {
-    fmt.Printf("%s", randomText(10))
+	clipboard.WriteAll(randomText(16))
 }
- 
+
 func randomText(length int) string {
-    const charSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    b := make([]byte, length)
-    for i := range b {
-        b[i] = charSet[rand.Intn(len(charSet))]
-    }
- 
-    return string(b)
+	const charSet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+	b := make([]byte, length)
+	for i := range b {
+		b[i] = charSet[rand.Intn(len(charSet))]
+	}
+
+	return string(b)
 }
