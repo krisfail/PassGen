@@ -1,10 +1,9 @@
 package main
 
 import (
+	"github.com/atotto/clipboard"
 	"math/rand"
 	"time"
-
-	"github.com/atotto/clipboard"
 )
 
 func init() {
